@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .left {
+      float: left;
+      width: 100px;
+      position: relative;
+      background: aliceblue;
+    }
+
+    .middle {
+      float: left;
+      margin-left: -100px;
+      width: 100%;
+      background: antiquewhite;
+    }
+
+    .middle-content {
+      margin-left: 100px;
+    }
+    .right {
+      float: right;
+      width: 100px;
+      margin-left: -100px;
+      background: aqua;
+    }
+
+
+    .o-left {
+      float: left;
+      width: 200px;
+      background: aliceblue;
+      position: relative;
+      right: 200px;
+      margin-left: -100%;
+    }
+    .o-middle {
+      float: left;
+      width: 100%;
+      background: antiquewhite;
+    }
+    .o-right {
+      float: left;
+      width: 100px;
+      background: aqua;
+      margin-left: -100px;
+    }
+  </style>
+</head>
+<body>
+<!--两边固定 中间自适应-->
+<div style="display: none">
+  <div class="left">
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+
+  </div>
+  <div class="middle">
+    <div class="middle-content">
+      <p>middle</p>
+    </div>
+  </div>
+  <div class="right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+
+  </div>
+</div>
+
+
+<div style="padding-left: 200px;padding-right: 100px">
+  <div class="o-middle">
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+
+  </div>
+  <div class="o-left">
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+
+  </div>
+  <div class="o-right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+  </div>
+</div>
+</body>
+</html>

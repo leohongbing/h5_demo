@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .left {
+      float: left;
+      width: 100px;
+      position: relative;
+      background: aliceblue;
+    }
+
+    .right {
+      float: right;
+      width: 100%;
+      margin-left: -100px;
+      background: antiquewhite;
+    }
+
+    .right-content {
+      margin-left: 100px;
+    }
+
+    .p {
+      position: relative;
+    }
+
+    .p-left {
+      width: 100px;
+      position: absolute;
+      left: 0;
+      background: aliceblue;
+    }
+    .p-right {
+      position: absolute;
+      left: 100px;
+      right: 0;
+      background: yellow;
+    }
+
+    .f-left {
+      float: left;
+      background: aliceblue;
+    }
+    .f-right {
+      overflow: hidden;
+      background: antiquewhite;
+    }
+  </style>
+</head>
+<body>
+<!--左边固定 右边自适应-->
+<div class="parent" style="display: none">
+  <div class="left"><p>left</p></div>
+  <div class="right">
+    <div class="right-content">
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+</div>
+
+<div class="p" style="display: none">
+  <div class="p-left">
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+  </div>
+  <div class="p-right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+
+  </div>
+</div>
+
+<!--左边自适应 右边自适应-->
+<div class="f">
+  <div class="f-left">
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+  </div>
+  <div class="f-right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+  </div>
+</div>
+</body>
+</html>
