@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>块级格式化上下文</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: #ff8000;
+
+    }
+
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: #ff0000;
+      display: inline-block;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      margin-top: -50px;
+    }
+  </style>
+</head>
+<body>
+<!--
+1. 外边距不重叠
+2. float盒子不与开启BFC的盒子重叠
+3. BFC盒子内部不影响外部的元素
+-->
+<div class="box1"></div>
+<div class="box2">
+  <div class="son"></div>
+</div>
+</body>
+</html>
