@@ -41,6 +41,9 @@
       position: relative;
       right: 200px;
       margin-left: -100%;
+
+      padding-bottom: 10000px;
+      margin-bottom: -10000px;
     }
     .o-middle {
       float: left;
@@ -52,6 +55,33 @@
       width: 100px;
       background: aqua;
       margin-left: -100px;
+      position: relative;
+      left: 100px;
+
+      padding-bottom: 10000px;
+      margin-bottom: -10000px;
+    }
+
+    .t-middle {
+      width: 100%;
+      float: left;
+      background: antiquewhite;
+    }
+    .t-left {
+       padding-bottom: 10000px;
+      margin-bottom: -10000px;
+      width: 200px;
+      margin-left: -100%;
+      float: left;
+      background: aqua;
+    }
+    .t-right {
+       padding-bottom: 10000px;
+      margin-bottom: -10000px;
+      width: 100px;
+      margin-left: -100px;
+      float: left;
+      background: aliceblue;
     }
   </style>
 </head>
@@ -77,8 +107,8 @@
   </div>
 </div>
 
-
-<div style="padding-left: 200px;padding-right: 100px">
+<!--圣杯布局-->
+<div style="padding-left: 200px;padding-right: 100px;overflow: hidden;display: none">
   <div class="o-middle">
     <p>middle</p>
     <p>middle</p>
@@ -103,6 +133,38 @@
 
   </div>
   <div class="o-right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+  </div>
+</div>
+
+<!--双飞翼-->
+<div style="overflow: hidden">
+  <div class="t-middle">
+    <div style="margin: 0 100px 0 200px;">
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+      <p>middle</p>
+    </div>
+  </div>
+  <div class="t-left">
+    <p>left</p>
+    <p>left</p>
+    <p>left</p>
+  </div>
+  <div class="t-right">
     <p>right</p>
     <p>right</p>
     <p>right</p>
