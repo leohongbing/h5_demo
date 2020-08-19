@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-        .w {
-            width: 200px;height: 400px;background: #ff6633;
-            position: relative;
-        }
+    .w {
+      width: 200px;
+      height: 400px;
+      background: #ff6633;
+      position: relative;
+    }
 
-        .i {
-            background: #ff6633;width: 100px;height: 200px;background: black;
-            position: absolute;
-            top: 50%;
-            margin-top: -100px;
-        }
-    </style>
+    .w:after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .i {
+      background: #ccc;
+      width: 100px;
+      height: 200px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 <body>
 <!--图文垂直居中-->
 <div>
-    <img style="width: 10px;height: 10px;vertical-align: middle" src="//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
-    <span style="vertical-align: middle">123123</span>
+  <img style="width: 10px;height: 10px;vertical-align: middle"
+       src="//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+  <span style="vertical-align: middle">123123</span>
 </div>
 
+<!--伪元素垂直居中-->
 <div class="w">
-    <div class="i"></div>
+  <div class="i"></div>
 </div>
 </body>
 </html>
