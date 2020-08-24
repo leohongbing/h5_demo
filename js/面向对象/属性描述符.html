@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var o = {a:3}; // 创建一个新对象
+
+  // 在对象中添加一个属性与数据描述符的示例
+  Object.defineProperty(o, "a", {
+    configurable : true,
+    // writable: true,
+    get() {
+      console.log(123)
+      return 'a'
+    },
+    set(v) {
+      console.log(v)
+    }
+  });
+  o.a = 34
+  console.log(o.a, Object.getOwnPropertyDescriptor(o, 'a'))
+</script>
+</body>
+</html>
