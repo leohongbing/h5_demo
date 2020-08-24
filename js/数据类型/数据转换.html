@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * undefined/null/NAN/false/0/-0 都为false
+   * */
+  console.log(!!undefined)
+  console.log(!!null)
+  console.log(!!0)
+  console.log(!!-0)
+  console.log(!!NaN)
+  console.log(!!false)
+
+  /**
+   * 对象转基本类型调用优先级 Symbol.toPrimitive > valueOf > toString
+   * */
+  var a = {
+    valueOf() {
+      return 1;
+    },
+    toString() {
+      return 2;
+    },
+    // [Symbol.toPrimitive]() {
+    //   return 3;
+    // }
+  }
+  console.log(a, a + '1')
+
+  console.log('b'+ +'b')
+
+  /**
+   * 隐式转换 ==
+   * */
+</script>
+</body>
+</html>
