@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function () {
+    /**
+     * 工厂模式
+     * */
+    function creatObj(name, age) {
+      var obj = {};
+      obj.name = name;
+      obj.age = age;
+      obj.sayName = function () {
+        return this.name;
+      }
+      return obj;
+    }
+
+    var person1 = creatObj('hanson', 18);
+    var person2 = creatObj('hansheng', '20');
+
+    console.log(person1.constructor) //Object
+    console.log(person2.constructor) //Obejct
+    console.log(person1.sayName === person2.sayName) //false
+    /**
+     * 构造函数
+     * */
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.prototype = {
+        constructor: Person,
+        sayName() {
+          return this.name
+        }
+      }
+    }
+
+    var p1 = new Person('AA', 18)
+    var p2 = new Person('BB', 19)
+    console.log(p1, p2, p1.sayName === p2.sayName)
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 1.创建新对象
+   * 2.将新对象的__proto__指向构造函数prototype
+   * 3.执行函数体并将this执行新对象
+   * 4.如果返回值是对象直接返回对象，如果是基本数据类型返回新对象
+   * */
+  function new2() {
+    var obj = new Object()
+    Constructor = [].shift.call(arguments)
+    obj.__proto__ = Constructor.prototype
+    var ret = Constructor.apply(obj, arguments)
+    return typeof ret === 'object' ? ret : obj
+  }
+
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+  }
+  var p1 = new2(Person, 'A', 18)
+  var p2 = new2(Person, 'B', 19)
+  console.log(p1, p2)
+</script>
+</body>
+</html>
