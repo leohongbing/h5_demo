@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  function Fun() {
+    this.name = 'fun'
+    this.arr = [1, 2, 3]
+  }
+  Fun.prototype.myLog = function() { console.log(1) }
+
+  function Obj () {
+    Fun.call(this)
+    this.type = 'obj'
+  }
+  Obj.prototype = new Fun()
+
+  var O1 = new Obj()
+  var O2 = new Obj()
+  O1.arr.push('123')
+
+  console.log(O1, O1.arr)  // [1, 2, 3, '123']
+  console.log(O2.arr)  // [1, 2, 3]
+
+</script>
+</body>
+</html>
