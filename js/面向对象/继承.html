@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 构造函数继承
+   * */
+  // 基于prototype继承
+  function Animal() {
+    this.a= '1'
+  }
+  Animal.prototype.species = '动物'
+
+  function Cat(name) {
+    // 继承一般属性方法
+    Animal.call(this)
+    this.name = name
+  }
+
+  // var F = function() {}
+  // F.prototype = Animal.prototype
+  // Cat.prototype = new F()
+  Cat.prototype = Object.create(Animal.prototype)
+  Cat.prototype.constructor = Cat
+
+  var o1 = new Cat('咪咪')
+  var o2 = new Animal()
+
+  console.log(o1 instanceof Cat, o2 instanceof Cat, o1, o2)
+
+
+  /**
+   *
+   * */
+</script>
+</body>
+</html>

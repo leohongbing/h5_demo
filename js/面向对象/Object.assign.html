@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var t = {}
+  var s1 = {a: {b: 'b'}}
+  var res = Object.assign(t, s1)
+  res.a.b = 'd'
+  res.a = 'a'
+  console.log(t, s1, res === t)
+</script>
+</body>
+</html>
