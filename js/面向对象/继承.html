@@ -24,7 +24,7 @@
   // var F = function() {}
   // F.prototype = Animal.prototype
   // Cat.prototype = new F()
-  Cat.prototype = Object.create(Animal.prototype)
+  Cat.prototype = Object.create(Animal.prototype) // Cat.prototype.__proto__ => Animal.prototype
   Cat.prototype.constructor = Cat
 
   var o1 = new Cat('咪咪')
