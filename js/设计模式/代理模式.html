@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var imgFunc = (function() {
+    var imgNode = document.createElement('img');
+    document.body.appendChild(imgNode);
+    return {
+      setSrc: function(src) {
+        imgNode.src = src;
+      }
+    }
+  })();
+  var proxyImage = (function() {
+    var img = new Image();
+    img.onload = function() {
+      imgFunc.setSrc(this.src);
+    }
+    return {
+      setSrc: function(src) {
+        // imgFunc.setSrc('./loading,gif');
+        img.src = src;
+      }
+    }
+  })();
+  proxyImage.setSrc('https://sponsor-static.segmentfault.com/4c7f26c465dfe2e52d2055c9225ed72a.png');
+
+</script>
+</body>
+</html>
