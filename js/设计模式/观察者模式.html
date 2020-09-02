@@ -7,73 +7,46 @@
 <body>
 <script type="text/javascript">
   /**
-   * 发布订阅模式(观察者模式)
-   * handles: 事件处理函数集合
-   * on: 订阅事件
-   * emit: 发布事件
-   * off: 删除事件
-   **/
-
-  class PubSub {
-    constructor() {
-      this.handles = {};
+   * 被观察者/主题
+   * */
+  class Subject {
+    constructor(state) {
+      this.state = state
+      this.list = []
     }
-
-    // 订阅事件
-    on(eventType, handle) {
-      if (!this.handles.hasOwnProperty(eventType)) {
-        this.handles[eventType] = [];
-      }
-      if (typeof handle == 'function') {
-        this.handles[eventType].push(handle);
-      } else {
-        throw new Error('缺少回调函数');
-      }
-      return this;
+    add() {
+      this.list.push(...arguments)
     }
-
-    // 发布事件
-    emit(eventType, ...args) {
-      if (this.handles.hasOwnProperty(eventType)) {
-        this.handles[eventType].forEach((item, key, arr) => {
-          item.apply(null, args);
-        })
-      } else {
-        throw new Error(`"${eventType}"事件未注册`);
-      }
-      return this;
+    remove(o) {
+      this.list.splice(this.list.indexOf(o), 1)
     }
-
-    // 删除事件
-    off(eventType, handle) {
-      if (!this.handles.hasOwnProperty(eventType)) {
-        throw new Error(`"${eventType}"事件未注册`);
-      } else if (typeof handle != 'function') {
-        throw new Error('缺少回调函数');
-      } else {
-        this.handles[eventType].forEach((item, key, arr) => {
-          if (item == handle) {
-            arr.splice(key, 1);
-          }
-        })
-      }
-      return this; // 实现链式操作
+    notify() {
+      this.list.forEach(o => o.update())
+    }
+    setState(state) {
+      this.state = state
+      this.notify()
     }
   }
 
-  // 下面做一些骚操作
-  let callback = function () {
-    console.log('you are so nice');
+  /**
+   * 观察者
+   * */
+  class Observe {
+    constructor(name) {
+      this.name = name
+    }
+    update() {
+      console.log(this.name)
+    }
   }
 
-  let pubsub = new PubSub();
-  pubsub.on('completed', (...args) => {
-    console.log(args.join(' '));
-  }).on('completed', callback);
-
-  pubsub.emit('completed', 'what', 'a', 'fucking day');
-  pubsub.off('completed', callback);
-  pubsub.emit('completed', 'fucking', 'again');
+  const s = new Subject()
+  const o1 = new Observe('张三')
+  const o2 = new Observe('李四')
+  s.add(o1, o2)
+  s.setState(1)
+  console.log(s)
 </script>
 </body>
 </html>
