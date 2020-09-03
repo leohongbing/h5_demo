@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  // function currying(fn) {
+  //   var args = []
+  //   return function next() {
+  //     var allArgs = [].slice.call(arguments)
+  //     console.log(allArgs, args)
+  //     if(allArgs.length > 0){
+  //       args = args.concat(allArgs)
+  //       return next
+  //     }else {
+  //       return fn.apply(null, args)
+  //     }
+  //   }
+  // }
+  // var add = currying(function () {
+  //   var sum = 0
+  //   for (var i = 0; i < arguments.length; i++) {
+  //     sum += arguments[i]
+  //   }
+  //   return sum
+  // })
+  // console.log(add(1)(2)())
+
+  function currying(fn) {
+    var args = []
+    function next() {
+      var allArgs = [].slice.call(arguments)
+      args = args.concat(allArgs)
+      return next
+    }
+    next.toString = function () {
+      console.log('toString')
+      return fn.apply(null, args)
+    }
+    next.valueOf = function () {
+      console.log('valueOf')
+      return fn.apply(null, args)
+    }
+
+    return next
+  }
+  var add = currying(function () {
+    var sum = 0
+    for (var i = 0; i < arguments.length; i++) {
+      sum += arguments[i]
+    }
+    return sum
+  })
+  console.log(add(1)(2,3)(4)(5))
+</script>
+</body>
+</html>

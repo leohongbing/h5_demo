@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  // 轻提示
+  function Toast(option){
+    this.prompt = '';
+  }
+  Toast.prototype = {
+    constructor: Toast,
+    // 输出提示
+    show: function(){
+      console.log(this.prompt);
+    }
+  };
+
+  // 新对象
+  var obj = {
+    prompt: '新对象'
+  };
+
+  Function.prototype.unCurrying = function(){
+    debugger
+    var self = this;
+    return function(){
+      return Function.prototype.call.apply(self, arguments);
+    }
+  }
+
+  // 使用
+  var objShow = Toast.prototype.show.unCurrying();
+  objShow(obj);
+
+</script>
+</body>
+</html>
