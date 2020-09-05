@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  const m = new Map()
+  const m1 = new WeakMap()
+  const o = {o: 'o'}
+  const f = function () {}
+  const s = 's'
+  m.set(o, 'obj')
+  m.set(f, 'fn')
+  m.set(s, 'str')
+  m1.set(o, 'obj')
+  m1.set(f, 'fn')
+  // m1.set(s, 'str')
+
+  // console.log(m.get(f))
+  for (const [key, value] of m) {
+    console.log(key, value)
+  }
+
+  console.log(m1.get(f))
+</script>
+</body>
+</html>
