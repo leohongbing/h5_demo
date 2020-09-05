@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var a = {name: 'a'}
+  var b = {name: 'b', f1}
+
+  Function.prototype.apply1 = function (context, arr) {
+    // 处理context
+    context = context != undefined && context != null? Object(context):window;
+    // 函数唯一标识
+    const fn = Symbol('fn')
+    context[fn] = this
+
+    // 参数
+    const args = [].slice.call(arguments, 1)
+    console.log(args)
+
+    const ret = arr.constructor === Array && arr.length > 0
+      ? context[fn](...arr)
+      : context[fn]()
+
+    // 删除多余属性
+    delete context[fn]
+
+    // 返回返回值
+    return ret
+  }
+
+  function f1(a) {
+    console.log(this.name, a)
+
+    return 'return'
+  }
+
+  // b.f1.call(a)
+  b.f1.apply1(a, [1,2,3])
+</script>
+</body>
+</html>
