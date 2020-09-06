@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 将伪数组转为数组
+   * */
+  var o = {}
+ var s = new Set([1,2,3])
+ var f = Array.from(s, (i,o)=> {
+   console.log(i, this)
+   return i+1
+ }, o)
+ console.log(f)
+</script>
+</body>
+</html>

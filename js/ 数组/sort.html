@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 数组排序
+   * */
+  var a = [1,0,5,4]
+  var a1 = a.sort((a, b) => {
+    if(a > b){
+      return -1 // 交换位置
+    }
+    if(a < b){
+      return 1  // 不交换位置
+    }
+    return 0 // 不交换位置
+  })
+  console.log(a, a1)
+
+</script>
+</body>
+</html>

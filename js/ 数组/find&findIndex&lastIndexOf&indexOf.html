@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * 返回第一个匹配的元素,找到该元素方法结束
+   * */
+  var a = [1,6,8,8,8,9]
+  var i = 0
+  // var element = a.find(e => {
+  //   ++i;
+  //   return e > 5
+  // })
+
+  /**
+   * 返回第一个匹配元素的索引
+   * */
+  var i1 = a.findIndex(e => {
+    ++i
+    return e > 5
+  })
+
+  /**
+   * 返回最后匹配元素的索引
+   * */
+  var i2 = a.lastIndexOf(8, -1)
+
+  /**
+   * 从给定索引开始查找第一个匹配的元素，没有则返回-1
+   * */
+  var i3 = a.indexOf(8, 0)
+  console.log( i, i2, i3)
+</script>
+</body>
+</html>
