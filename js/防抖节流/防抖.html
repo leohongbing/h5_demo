@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="button">按钮</button>
+<script type="text/javascript">
+  /**
+   * 在一定时间内只执行一次函数，每次触发函数都重新计时，可立即执行也可最后一次执行
+   * */
+  var btn = document.getElementById('button')
+  var debounce1 = debounce(btnClick, 1000, true)
+  btn.onclick = function () {
+    console.log(123)
+    debounce1()
+  }
+
+  function btnClick() {
+    console.log('click')
+  }
+
+  function debounce(fn, delay, immediate) {
+    var timer = null
+    return function () {
+      // 清除定时器重新计时
+      clearTimeout(timer)
+      if(immediate){
+        !timer && fn.call(this, ...arguments)
+        timer = setTimeout(() => {
+          // 清除定时器标识
+          timer = null
+        }, delay)
+      }else {
+        timer = setTimeout(() => {
+          // 清除定时器标识
+          timer = null
+          fn.call(this, ...arguments)
+        }, delay)
+      }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="button">按钮</button>
+<script type="text/javascript">
+  /**
+   * 每过一段时间执行一次函数
+   * */
+  var btn = document.getElementById('button')
+  var throttle1 = throttle(btnClick, 1000)
+  btn.onclick = function () {
+    console.log(123)
+    throttle1()
+  }
+
+  function btnClick() {
+    console.log('click')
+  }
+
+  function throttle(fn, delay) {
+    var timer = null
+    return function () {
+      // 首次执行
+      // !timer && fn.call(this, ...arguments)
+      !timer && (timer = setTimeout(() => {
+        // 延迟执行
+        fn.call(this, ...arguments)
+        timer = null
+      }, delay))
+    }
+  }
+</script>
+</body>
+</html>

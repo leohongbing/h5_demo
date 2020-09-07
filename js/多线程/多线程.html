@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var w = new Worker('./work1.js')
+  // 发送消息
+  w.postMessage(88)
+  // 接受信息
+  w.onmessage = function (e) {
+    console.log(e)
+  }
+  // 清楚worker
+  setInterval(() => {
+    w.terminate()
+  }, 3000)
+</script>
+</body>
+</html>
