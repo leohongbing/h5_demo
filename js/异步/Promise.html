@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var p = new Promise((resolve, reject) => {
+    // 立即执行
+    console.log('start')
+    setTimeout(() => {
+      resolve(123)
+    }, 1000)
+  })
+  var p1 = p.then((res) => {
+    console.log(res)
+    return res
+  }).then((res) => {
+    console.log(res, p, p1)
+  })
+
+</script>
+</body>
+</html>

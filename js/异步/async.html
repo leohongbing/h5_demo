@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  /**
+   * await 执行的非Promise函数直接拿到返回值返回执行后面的语句
+   *       Promise函数会等待返回值返回
+   * */
+  async function async1() {
+    console.log('start')
+    var res = await wait();
+    console.log(res, '------')
+  }
+
+  function wait() {
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     console.log('2')
+    //     resolve(123)
+    //   }, 3000)
+    // })
+
+    return  setTimeout(() => {
+      console.log('2')
+      return 123
+    }, 3000)
+  }
+
+  async1()
+</script>
+</body>
+</html>
