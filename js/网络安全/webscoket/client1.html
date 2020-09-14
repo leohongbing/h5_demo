@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  const ws = new WebSocket('ws://localhost:8888')
+  ws.onopen = function (...args) {
+    console.log(args, 'open')
+  }
+
+  ws.onmessage = function (res) {
+    console.log(res, 'message')
+  }
+
+  ws.onclose = function (...args) {
+    console.log(args, 'close')
+  }
+
+  ws.onerror = function (...args) {
+    console.log(args, 'error')
+  }
+</script>
+</body>
+</html>

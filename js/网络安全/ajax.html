@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  // get
+  var xml = new XMLHttpRequest()
+  console.log(xml.readyState)
+  xml.open('get', 'https://yapi.g2work.com/mock/24/test/test/test?id=1')
+  console.log(xml.readyState)
+  xml.send()
+  xml.onload = function (res) {
+    console.log(res)
+  }
+  xml.onreadystatechange = function (e) {
+    console.log(e.currentTarget)
+  }
+
+  // post
+  var xml1 = new XMLHttpRequest()
+  console.log(xml1.readyState)
+  xml1.open('post', 'https://yapi.g2work.com/mock/24/postTest')
+  console.log(xml1.readyState)
+  xml1.setRequestHeader('content-Type', 'application/json')
+  xml1.onload = function (res) {
+    console.log(res)
+  }
+  xml1.send(JSON.stringify({a: 'a'}))
+  xml1.onreadystatechange = function (e) {
+    console.log(e.currentTarget.readyState)
+  }
+</script>
+</body>
+</html>
