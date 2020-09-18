@@ -48,3 +48,77 @@ class class2 implements class1 {
     constructor() {
     }
 }
+
+// 方法和constructor检查
+interface ClockConstructor {
+    new (hour: number, minute: number): ClockInterface;
+}
+interface ClockInterface {
+    tick();
+}
+
+function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+    return new ctor(hour, minute);
+}
+
+class DigitalClock implements ClockInterface{
+    constructor(h: number, m: number) { }
+    tick() {
+        console.log("beep beep");
+    }
+}
+
+let digital = createClock(DigitalClock, 12, 17);
+
+// 接口继承
+interface shape {
+    color: string
+}
+interface penStroke {
+    penWidth: number
+}
+
+interface square extends shape,penStroke {
+    sideLen: number
+}
+let s = <square>{};
+s.sideLen = 1
+s.color = 'red'
+s.penWidth = 2
+console.log(s)
+
+
+// 混合类型 对象和函数
+interface in4 {
+    (start: number): string;
+    interval: string;
+    reset(): void
+}
+let counter = <in4>function (start) {return '1'}
+counter.interval = '1000'
+counter.reset = function () {console.log(123)}
+console.log(counter.interval)
+
+
+//  接口继承类
+class Control {
+    private state: any;
+}
+
+interface SelectableControl extends Control {
+    select(): void;
+}
+
+// 类只能继承一个接口
+class Button extends Control implements SelectableControl {
+    select() { }
+}
+
+class TextBox extends Control {
+    // select() { }
+}
+
+// 错误：“Image”类型缺少“state”属性。
+// class Image implements SelectableControl{
+//     select() { }
+// }
