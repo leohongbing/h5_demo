@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  // var f = function() {console.log(123)}
+
+  function Vue() {
+    const a = 1
+    this.A = 'A'
+  }
+  Vue.util = {
+    a: function () {
+      console.log('a')
+    }
+  }
+  Vue.prototype = {
+    b: function () {
+
+    }
+  }
+  const vue = new Vue()
+  //
+  // a = {a: 'a'}
+  console.log(vue)
+</script>
+</body>
+</html>
