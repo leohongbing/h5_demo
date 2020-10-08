@@ -23,7 +23,7 @@
     data() {
 
       return {
-        msg: 'my-async-component'
+        msg: 'my-async-component1'
       };
 
     },
@@ -33,11 +33,11 @@
     watch: {},
 
     created() {
-
+      this.$on('hook:mounted', () => {console.log('hook: mounted')})
     },
 
     mounted() {
-
+      console.log('myAsyncComponent mounted')
     },
 
     updated() {
