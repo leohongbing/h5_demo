@@ -1,0 +1,17 @@
+/* clear float */
+%clearfix {
+  zoom: 1;
+  _height: 1px;
+  display: block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+%clearfixOverflow {
+  overflow:hidden;
+  display:block;
+}

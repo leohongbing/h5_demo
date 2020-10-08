@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>example</title>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+<input type="hidden" id="cid" value="{{cid}}"/>
+<input type="hidden" id="pid" value="{{pid}}"/>
+<script>
+  var cid = window.document.getElementById('cid').value;
+  var pid = window.document.getElementById('pid').value;
+  window.sessionStorage.setItem('cid', cid);
+  window.sessionStorage.setItem('pid', pid);
+</script>
+<!--用于生产环境生成runtimejs start-->
+{{runtimeJs}}
+<!--用于生产环境生成runtimejs end-->
+</body>
+</html>

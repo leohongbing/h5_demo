@@ -1,0 +1,110 @@
+// reset
+* {
+  text-shadow: none;
+  -webkit-text-size-adjust: none; /*ios text Horizontal screen*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, i {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 12px;
+  font-family: "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", Helvetica, "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  background: #fff;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup, b, i {
+  font-style: normal;
+  font-weight: normal;
+}
+
+del, ins {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/*remove the automatic verification of the red box*/
+input, textarea {
+  box-shadow: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+/*disable background white*/
+select, input {
+  background-color: #FFF;
+}
+
+select {
+  width: 40px;
+}
+
+textarea {
+  border: 1px solid #cccccc;
+  background: #FFF;
+}
+
+/*input type=number arrow*/
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  width: auto;
+}
+
+/*ie10*/
+input::-ms-clear {
+  display: none;
+}
+
+/*win8 chrome*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+/*placeholder text color*/
+textarea::-webkit-input-placeholder, input::-webkit-input-placeholder {
+  color: #9d9d9d
+}
+
+textarea:-moz-placeholder, input:-moz-placeholder {
+  color: #9d9d9d
+}
+
+textarea:-ms-input-placeholder, input:-ms-input-placeholder {
+  color: #9d9d9d
+}
+
+input:-moz-placeholder {
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #0f72b8;
+}
+
+a:hover {
+  text-decoration: none;
+}
