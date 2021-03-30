@@ -37,5 +37,5 @@ Vue.component('async-example', AsyncComp)
 
 new Vue({
   el: '#app',
-  template: '<async-example/>'
+  template: '<async-example />'
 })
