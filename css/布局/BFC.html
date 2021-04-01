@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box1 {
+      width: 100px;
+      height: 100px;
+      margin: 60px;
+      background-color: #ff8000;
+    }
+    .box2 {
+      width: 100px;
+      height: 100px;
+      margin: 50px;
+      background-color: #ff0000;
+    }
+
+    .box3 {
+      width: 100px;
+      height: 100px;
+      background-color: #ff8000;
+
+    }
+
+    .box4 {
+      width: 200px;
+      height: 200px;
+      background-color: #ff0000;
+      display: inline-block;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      background: #000;
+      margin-top: -50px;
+    }
+
+  </style>
+
+</head>
+<body>
+<!--外边距重叠 以大的为准-->
+<div class="box1"></div>
+<div class="box2"></div>
+
+<!--两列布局-->
+
+<!--BFC里面的元素不会影响外面的元素-->
+<div class="box3"></div>
+<div class="box4">
+  <div class="son"></div>
+</div>
+</body>
+</html>
