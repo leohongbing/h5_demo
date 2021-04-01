@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>选择器</title>
+
+  <style>
+    .test:first-child {
+      background-color: yellow;
+    }
+
+    .test:last-child {
+      background-color: red;
+    }
+
+    /*.test1:nth-child(3) {*/
+    /*  color: yellow;*/
+    /*}*/
+
+    .test3:nth-of-type(2) {
+      color: blue;
+    }
+
+    /*奇数*/
+    table.dataintable tr:nth-child(odd) {
+      background-color:#F5F5F5;
+    }
+    table.dataintable tr:nth-child(even) {
+      background-color:#fff;
+    }
+  </style>
+</head>
+<body>
+<h1>这是标题</h1>
+<p class='test3'>第一个段落。</p>
+<p class='test3'>第二个段落。</p>
+<p class='test3'>第三个段落。</p>
+<p class='test3'>第四个段落。</p>
+<p>第五个段落。</p>
+
+<p class="test1">这个段落是其父元素（body）的首个子元素。</p>
+<h1 class="test1">欢迎访问我的主页</h1>
+<p class="test1">这个段落不是其父元素的首个子元素。</p>
+<div>
+  <p class='test'>这个段落是其父元素（div）的首个子元素。</p>
+  <p class="test">这个段落不是其父元素的首个子元素。</p>
+</div>
+
+
+<table class="dataintable">
+  <tr>
+    <th>值</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><i>outline-color</i></td>
+    <td>规定边框的颜色。</td>
+  </tr>
+  <tr>
+    <td><i>outline-style</i></td>
+    <td>规定边框的样式。</td>
+  </tr>
+  <tr>
+    <td><i>outline-width</i></td>
+    <td>规定边框的宽度。</td>
+  </tr>
+  <tr>
+    <td>inherit</td>
+    <td>规定应该从父元素继承 outline 属性的设置。</td>
+  </tr>
+</table>
+</body>
+</html>
