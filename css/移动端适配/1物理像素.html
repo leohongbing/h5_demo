@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title></title>
+  <title>1物理像素</title>
   <style type="text/css">
 
     * {
@@ -33,7 +33,7 @@
 
       var scale = 1 / dpr;
       var meta = document.querySelector("meta[name='viewport']");
-      meta.content = "width=device-width,initial-scale=" + scale;
+      meta.content = "width=device-width,initial-scale=" + scale + ',user-scalable=no';
     })()
   }
 </script>
