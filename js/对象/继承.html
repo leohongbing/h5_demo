@@ -21,7 +21,7 @@
     this.name = name
   }
 
-  // var F = function() {}
+  // var F = function() {} // 避免浪费内存
   // F.prototype = Animal.prototype
   // Cat.prototype = new F()
   Cat.prototype = Object.create(Animal.prototype) // Cat.prototype.__proto__ => Animal.prototype
@@ -30,7 +30,7 @@
   var o1 = new Cat('咪咪')
   var o2 = new Animal()
 
-  console.log(o1 instanceof Cat, o2 instanceof Cat, o1, o2)
+  console.log(o1 instanceof Animal, o2 instanceof Cat, o1, o2)
 
 
   /**

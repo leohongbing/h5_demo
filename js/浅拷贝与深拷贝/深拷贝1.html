@@ -29,9 +29,15 @@
     }
     return cloneObj;
   }
-  let obj = { name: 1, address: { x: 100 }, fn: function () {
-    console.log(123)
-    }, s: Symbol('123') };
+
+  let obj = {
+    name: 1,
+    address: {x: 100},
+    fn: function () {
+      console.log(123)
+    },
+    s: Symbol('123')
+  };
   obj.o = obj; // 对象存在循环引用的情况
   let d = deepClone(obj);
   obj.address.x = 200;

@@ -16,14 +16,16 @@
     Fun.call(this)
     this.type = 'obj'
   }
-  Obj.prototype = new Fun()
+  // Obj.prototype = new Fun() 造成内存浪费
+  Obj.prototype = Object.create(Fun.prototype)
+  Obj.prototype.constructor = Obj
 
   var O1 = new Obj()
   var O2 = new Obj()
   O1.arr.push('123')
 
   console.log(O1, O1.arr)  // [1, 2, 3, '123']
-  console.log(O2.arr)  // [1, 2, 3]
+  console.log(O2, O2.arr)  // [1, 2, 3]
 
 </script>
 </body>

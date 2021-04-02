@@ -16,7 +16,7 @@
   // 实例对象隐式原型 ==》 构造函数原型
   console.log(p.__proto__ === Person.prototype)
   // 构造函数隐式原型 ==》 Function函数
-  console.log(Person.__proto__ === Function.prototype)
+  console.log(Person.constructor.__proto__ === Function.prototype)
   // 构造函数原型的隐式原型 ==》 对象原型
   console.log(Person.prototype.__proto__ === Object.prototype)
 
