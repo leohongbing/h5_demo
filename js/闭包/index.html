@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function () {
+    var scope = "global scope";
+    function checkscope(){
+      var scope = "local scope";
+      function f(){
+        return scope;
+      }
+      return f;
+    }
+
+    var foo = checkscope();
+    foo();
+
+
+    var data = [];
+
+    for (var i = 0; i < 3; i++) {
+      console.log(i)
+      // data[i] = function () {
+      //   console.log(i)
+      // }
+
+      data[i] = (function (i) {
+        return function () {
+          console.log(i);
+        }
+      })(i);
+    }
+
+    data[0]();
+    data[1]();
+    data[2]();
+  }
+</script>
+</body>
+</html>

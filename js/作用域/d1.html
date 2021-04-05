@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  window.onload = function () {
+    var scope = "global scope";
+    function checkscope(a){
+      debugger
+      var scope2 = 'local scope';
+      return scope2;
+    }
+    checkscope('aaa');
+  }
+
+</script>
+</body>
+</html>
