@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    /* css埋点 */
+    .link:active::after{
+      color: red;
+      content: url("http://192.168.1.110:3000/someapi?params=someInfo");
+    }
+  </style>
+</head>
+<body>
+<a class="link btn">点击访问</a>
+
+<script type="text/javascript">
+  // 收集用户信息
+  (function () {
+    let params = {};
+    // document
+    if (document) {
+      params.domain = document.domain || ''; // 域名
+      params.url = document.URL || ''; // 当前 URL 地址
+      params.title = document.title || ''; // 当前页面标题
+      params.referrer = document.referrer || ''; // 上一个访问页面 URL 地址
+    }
+    // window
+    if(window && window.screen) {
+      params.sh = window.screen.height || 0; // 屏幕高度
+      params.sw = window.screen.width || 0; // 屏幕宽度
+      params.cd = window.screen.colorDepth || 0; // 屏幕颜色深度
+    }
+    // navigator
+    if(navigator) {
+      params.lang = navigator.language || ''; // 语言
+    }
+    // 拼接参数
+    let args = '';
+    for(let i in params) {
+      if(args !== '') {
+        args += '&';
+      }
+      args += `${i}=${params[i]}`
+    }
+    // 通过伪装成 Image 对象，传递给后端
+    let img = new Image(1, 1);
+    let src = `http://www.funlee.cn/api/test.jpg?args=${encodeURIComponent(args)}`;
+    img.src = src;
+  })()
+
+
+  window.onload = function () {
+    let timing = performance.timing,
+      start = timing.navigationStart,
+      dnsTime = 0,
+      tcpTime = 0,
+      firstPaintTime = 0,
+      domRenderTime = 0,
+      loadTime = 0;
+
+    dnsTime = timing.domainLookupEnd - timing.domainLookupStart;
+    tcpTime = timing.connectEnd - timing.connectStart;
+    firstPaintTime = timing.responseStart - start;
+    domRenderTime = timing.domContentLoadedEventEnd - start;
+    loadTime = timing.loadEventEnd - start;
+
+    console.log('DNS解析时间:', dnsTime,
+      '\nTCP建立时间:', tcpTime,
+      '\n首屏时间:', firstPaintTime,
+      '\ndom渲染完成时间:', domRenderTime,
+      '\n页面onload时间:', loadTime);
+  }
+</script>
+</body>
+</html>
