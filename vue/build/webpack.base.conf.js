@@ -22,7 +22,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/handComponent.js'
+    app: './src/router.js'
   },
   output: {
     path: config.build.assetsRoot,
